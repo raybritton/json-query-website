@@ -217,11 +217,11 @@
             
             <li><a href="#Statement" title="Statement">Statement</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Search">Search:</a></p><img border="0" src="diagram/Search.png" height="113" width="947" usemap="#Search.map"><map name="Search.map"><area shape="rect" coords="123,1,183,33" href="#Target" title="Target"><area shape="rect" coords="395,1,471,33" href="#Operator" title="Operator"><area shape="rect" coords="491,1,547,33" href="#Value" title="Value"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Search">Search:</a></p><img border="0" src="diagram/Search.png" height="211" width="911" usemap="#Search.map"><map name="Search.map"><area shape="rect" coords="269,1,329,33" href="#Target" title="Target"><area shape="rect" coords="541,1,617,33" href="#Operator" title="Operator"><area shape="rect" coords="637,1,693,33" href="#Value" title="Value"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Search" title="Search" shape="rect">Search</a>   ::= 'SEARCH' <a href="#Target" title="Target" shape="rect">Target</a> 'FOR' ( 'KEY' | 'VALUE' )? <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'? 'WITH VALUES'?</pre>
+            <pre><a href="#Search" title="Search" shape="rect">Search</a>   ::= 'SEARCH' 'DISTINCT'? <a href="#Target" title="Target" shape="rect">Target</a> 'FOR' ( 'ANY' | 'KEY' | 'VALUE' ) <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'? 'WITH VALUES'?</pre>
             </div>
          </p>
       
@@ -231,11 +231,11 @@
             
             <li><a href="#Statement" title="Statement">Statement</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Where">Where:</a></p><img border="0" src="diagram/Where.png" height="69" width="587" usemap="#Where.map"><map name="Where.map"><area shape="rect" coords="119,1,191,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="211,1,287,33" href="#Operator" title="Operator"><area shape="rect" coords="307,1,363,33" href="#Value" title="Value"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Where">Where:</a></p><img border="0" src="diagram/Where.png" height="81" width="637" usemap="#Where.map"><map name="Where.map"><area shape="rect" coords="139,1,211,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="261,1,337,33" href="#Operator" title="Operator"><area shape="rect" coords="357,1,413,33" href="#Value" title="Value"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Where" title="Where" shape="rect">Where</a>    ::= 'WHERE' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'?</pre>
+            <pre><a href="#Where" title="Where" shape="rect">Where</a>    ::= 'WHERE' ( <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> | 'ELEMENT' ) <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'?</pre>
             </div>
          </p>
       
@@ -279,11 +279,11 @@
             
             <li><a href="#Select" title="Select">Select</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="OrderBy">OrderBy:</a></p><img border="0" src="diagram/OrderBy.png" height="69" width="357" usemap="#OrderBy.map"><map name="OrderBy.map"><area shape="rect" coords="139,1,211,33" href="#JsonKey" title="JsonKey"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="OrderBy">OrderBy:</a></p><img border="0" src="diagram/OrderBy.png" height="81" width="407" usemap="#OrderBy.map"><map name="OrderBy.map"><area shape="rect" coords="159,1,231,33" href="#JsonKey" title="JsonKey"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>  ::= 'ORDER BY' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> 'DESC'?</pre>
+            <pre><a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>  ::= 'ORDER BY' ( <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> | 'ELEMENT' ) 'DESC'?</pre>
             </div>
          </p>
       
@@ -387,15 +387,16 @@
             
             <li><a href="#Describe" title="Describe">Describe</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="SelectProjection">SelectProjection:</a></p><img border="0" src="diagram/SelectProjection.png" height="213" width="403" usemap="#SelectProjection.map"><map name="SelectProjection.map"><area shape="rect" coords="49,1,121,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="115,89,187,121" href="#JsonKey" title="JsonKey"><area shape="rect" coords="49,177,127,209" href="#MathExpr" title="MathExpr"><area shape="rect" coords="193,177,307,209" href="#MathProjection" title="MathProjection"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="SelectProjection">SelectProjection:</a></p><img border="0" src="diagram/SelectProjection.png" height="257" width="403" usemap="#SelectProjection.map"><map name="SelectProjection.map"><area shape="rect" coords="49,1,121,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="115,89,187,121" href="#JsonKey" title="JsonKey"><area shape="rect" coords="49,133,127,165" href="#MathExpr" title="MathExpr"><area shape="rect" coords="193,133,307,165" href="#MathProjection" title="MathProjection"></map><p>
          
          <div class="ebnf">
             
             <pre><a href="#SelectProjection" title="SelectProjection" shape="rect">SelectProjection</a>
          ::= <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a>
            | '(' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> ( ',' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> )* ') '
-           | 'ELEMENT'
-           | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> '(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'</pre>
+           | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> '(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'
+           | 'KEYS'
+           | 'VALUES'</pre>
             </div>
          </p>
       
@@ -454,12 +455,12 @@
             
             <li><a href="#Target" title="Target">Target</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="JsonKey">JsonKey:</a></p><img border="0" src="diagram/JsonKey.png" height="81" width="313" usemap="#JsonKey.map"><map name="JsonKey.map"><area shape="rect" coords="95,1,217,33" href="#JsonKeyContent" title="JsonKeyContent"><area shape="rect" coords="93,45,215,77" href="#JsonKeyContent" title="JsonKeyContent"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="JsonKey">JsonKey:</a></p><img border="0" src="diagram/JsonKey.png" height="81" width="267" usemap="#JsonKey.map"><map name="JsonKey.map"><area shape="rect" coords="95,1,171,33" href="#JsonPath" title="JsonPath"><area shape="rect" coords="93,45,169,77" href="#JsonPath" title="JsonPath"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a>  ::= '"' <a href="#JsonKeyContent" title="JsonKeyContent" shape="rect">JsonKeyContent</a> '"'
-           | "'" <a href="#JsonKeyContent" title="JsonKeyContent" shape="rect">JsonKeyContent</a> "'"</pre>
+            <pre><a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a>  ::= '"' <a href="#JsonPath" title="JsonPath" shape="rect">JsonPath</a> '"'
+           | "'" <a href="#JsonPath" title="JsonPath" shape="rect">JsonPath</a> "'"</pre>
             </div>
          </p>
       
@@ -477,21 +478,6 @@
             
             <li><a href="#Where" title="Where">Where</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="JsonKeyContent">JsonKeyContent:</a></p><img border="0" src="diagram/JsonKeyContent.png" height="85" width="321" usemap="#JsonKeyContent.map"><map name="JsonKeyContent.map"><area shape="rect" coords="49,17,125,49" href="#JsonPath" title="JsonPath"></map><p>
-         
-         <div class="ebnf">
-            
-            <pre><a href="#JsonKeyContent" title="JsonKeyContent" shape="rect">JsonKeyContent</a>
-         ::= <a href="#JsonPath" title="JsonPath" shape="rect">JsonPath</a>+ '.ELEMENT'?</pre>
-            </div>
-         </p>
-      
-      <p>referenced by:
-         
-         <ul>
-            
-            <li><a href="#JsonKey" title="JsonKey">JsonKey</a></li>
-            </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="JsonPath">JsonPath:</a></p><img border="0" src="diagram/JsonPath.png" height="81" width="205" usemap="#JsonPath.map"><map name="JsonPath.map"><area shape="rect" coords="49,45,155,77" href="#PathSegment" title="PathSegment"></map><p>
          
          <div class="ebnf">
@@ -506,7 +492,7 @@
             
             <li><a href="#FullJsonPath" title="FullJsonPath">FullJsonPath</a></li>
             
-            <li><a href="#JsonKeyContent" title="JsonKeyContent">JsonKeyContent</a></li>
+            <li><a href="#JsonKey" title="JsonKey">JsonKey</a></li>
             </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="PathSegment">PathSegment:</a></p><img border="0" src="diagram/PathSegment.png" height="101" width="439" usemap="#PathSegment.map"><map name="PathSegment.map"><area shape="rect" coords="69,33,151,65" href="#Character" title="Character"><area shape="rect" coords="257,65,323,97" href="#Integer" title="Integer"></map><p>
          
