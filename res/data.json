@@ -1,0 +1,23 @@
+{
+	"select":"SELECT is used to retrieve specific values from and/or filter a JSON data structure",
+	"describe":"DESCRIBE is used to create a type description of a JSON data structure",
+	"search":"SEARCH is used to find matching values ",
+	"where":"",
+	"limit":"",
+	"offset":"",
+	"orderby":"",
+	"asjson":"",
+	"withkeys":"",
+	"withvalues":"",
+	"target":"",
+	"operator":"",
+	"value":"",
+	"describeprojection":"",
+	"selectprojection":"",
+	"mathexpr":"",
+	"fulljsonpath":"",
+	"jsonkey":"",
+	"jsonkeycontent":"",
+	"jsonpath":"",
+	"pathsegment":""
+}
