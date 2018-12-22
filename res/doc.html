@@ -132,7 +132,7 @@
     }
     #divs div.ebnf, div.ebnf
     {
-      display: none;
+      display: block;
       padding-left: 16px;
       padding-top: 2px; 
       padding-bottom: 2px; 
@@ -185,11 +185,11 @@
             </div>
          </p>
       
-      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="Select">Select:</a></p><img border="0" src="diagram/Select.png" height="155" width="961" usemap="#Select.map"><map name="Select.map"><area shape="rect" coords="285,33,407,65" href="#SelectProjection" title="SelectProjection"><area shape="rect" coords="527,1,587,33" href="#Target" title="Target"><area shape="rect" coords="627,33,689,65" href="#Where" title="Where"><area shape="rect" coords="749,33,799,65" href="#Limit" title="Limit"><area shape="rect" coords="859,33,917,65" href="#Offset" title="Offset"><area shape="rect" coords="577,119,647,151" href="#OrderBy" title="OrderBy"><area shape="rect" coords="707,119,787,151" href="#WithKeys" title="WithKeys"><area shape="rect" coords="847,119,911,151" href="#AsJson" title="AsJson"></map><p>
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="Select">Select:</a></p><img border="0" src="diagram/Select.png" height="155" width="961" usemap="#Select.map"><map name="Select.map"><area shape="rect" coords="285,33,407,65" href="#SelectProjection" title="SelectProjection"><area shape="rect" coords="527,1,587,33" href="#Target" title="Target"><area shape="rect" coords="627,33,689,65" href="#Where" title="Where"><area shape="rect" coords="749,33,799,65" href="#Limit" title="Limit"><area shape="rect" coords="859,33,917,65" href="#Offset" title="Offset"><area shape="rect" coords="559,119,629,151" href="#OrderBy" title="OrderBy"><area shape="rect" coords="847,119,911,151" href="#AsJson" title="AsJson"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Select" title="Select" shape="rect">Select</a>   ::= 'SELECT' 'DISTINCT'? ( <a href="#SelectProjection" title="SelectProjection" shape="rect">SelectProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? <a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>? <a href="#WithKeys" title="WithKeys" shape="rect">WithKeys</a>? <a href="#AsJson" title="AsJson" shape="rect">AsJson</a>?</pre>
+            <pre><a href="#Select" title="Select" shape="rect">Select</a>   ::= 'SELECT' 'DISTINCT'? ( <a href="#SelectProjection" title="SelectProjection" shape="rect">SelectProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? <a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>? 'WITH KEYS'? <a href="#AsJson" title="AsJson" shape="rect">AsJson</a>?</pre>
             </div>
          </p>
       
@@ -203,11 +203,11 @@
             
             <li><a href="#Value" title="Value">Value</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Describe">Describe:</a></p><img border="0" src="diagram/Describe.png" height="155" width="995" usemap="#Describe.map"><map name="Describe.map"><area shape="rect" coords="303,33,441,65" href="#DescribeProjection" title="DescribeProjection"><area shape="rect" coords="561,1,621,33" href="#Target" title="Target"><area shape="rect" coords="661,33,723,65" href="#Where" title="Where"><area shape="rect" coords="783,33,833,65" href="#Limit" title="Limit"><area shape="rect" coords="893,33,951,65" href="#Offset" title="Offset"><area shape="rect" coords="617,119,687,151" href="#OrderBy" title="OrderBy"><area shape="rect" coords="747,119,827,151" href="#WithKeys" title="WithKeys"><area shape="rect" coords="887,119,945,151" href="#Pretty" title="Pretty"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Describe">Describe:</a></p><img border="0" src="diagram/Describe.png" height="155" width="995" usemap="#Describe.map"><map name="Describe.map"><area shape="rect" coords="303,33,441,65" href="#DescribeProjection" title="DescribeProjection"><area shape="rect" coords="561,1,621,33" href="#Target" title="Target"><area shape="rect" coords="661,33,723,65" href="#Where" title="Where"><area shape="rect" coords="783,33,833,65" href="#Limit" title="Limit"><area shape="rect" coords="893,33,951,65" href="#Offset" title="Offset"><area shape="rect" coords="585,119,655,151" href="#OrderBy" title="OrderBy"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Describe" title="Describe" shape="rect">Describe</a> ::= 'DESCRIBE' 'DISTINCT'? ( <a href="#DescribeProjection" title="DescribeProjection" shape="rect">DescribeProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? <a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>? <a href="#WithKeys" title="WithKeys" shape="rect">WithKeys</a>? <a href="#Pretty" title="Pretty" shape="rect">Pretty</a>?</pre>
+            <pre><a href="#Describe" title="Describe" shape="rect">Describe</a> ::= 'DESCRIBE' 'DISTINCT'? ( <a href="#DescribeProjection" title="DescribeProjection" shape="rect">DescribeProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? <a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>? 'WITH KEYS'? 'PRETTY'?</pre>
             </div>
          </p>
       
@@ -217,11 +217,11 @@
             
             <li><a href="#Statement" title="Statement">Statement</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Search">Search:</a></p><img border="0" src="diagram/Search.png" height="113" width="633" usemap="#Search.map"><map name="Search.map"><area shape="rect" coords="123,1,183,33" href="#Target" title="Target"><area shape="rect" coords="395,1,451,33" href="#Value" title="Value"><area shape="rect" coords="491,33,583,65" href="#WithValues" title="WithValues"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Search">Search:</a></p><img border="0" src="diagram/Search.png" height="113" width="753" usemap="#Search.map"><map name="Search.map"><area shape="rect" coords="123,1,183,33" href="#Target" title="Target"><area shape="rect" coords="395,1,471,33" href="#Operator" title="Operator"><area shape="rect" coords="491,1,547,33" href="#Value" title="Value"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Search" title="Search" shape="rect">Search</a>   ::= 'SEARCH' <a href="#Target" title="Target" shape="rect">Target</a> 'FOR' ( 'KEY' | 'VALUE' )? <a href="#Value" title="Value" shape="rect">Value</a> <a href="#WithValues" title="WithValues" shape="rect">WithValues</a>?</pre>
+            <pre><a href="#Search" title="Search" shape="rect">Search</a>   ::= 'SEARCH' <a href="#Target" title="Target" shape="rect">Target</a> 'FOR' ( 'KEY' | 'VALUE' )? <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'WITH VALUES'?</pre>
             </div>
          </p>
       
@@ -295,11 +295,11 @@
             
             <li><a href="#Select" title="Select">Select</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="AsJson">AsJson:</a></p><img border="0" src="diagram/AsJson.png" height="69" width="255" usemap="#AsJson.map"><map name="AsJson.map"><area shape="rect" coords="147,33,205,65" href="#Pretty" title="Pretty"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="AsJson">AsJson:</a></p><img border="0" src="diagram/AsJson.png" height="69" width="269"><p>
          
          <div class="ebnf">
             
-            <pre><a href="#AsJson" title="AsJson" shape="rect">AsJson</a>   ::= 'AS JSON' <a href="#Pretty" title="Pretty" shape="rect">Pretty</a>?</pre>
+            <pre><a href="#AsJson" title="AsJson" shape="rect">AsJson</a>   ::= 'AS JSON' 'PRETTY'?</pre>
             </div>
          </p>
       
@@ -308,53 +308,6 @@
          <ul>
             
             <li><a href="#Select" title="Select">Select</a></li>
-            </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="WithKeys">WithKeys:</a></p><img border="0" src="diagram/WithKeys.png" height="37" width="157"><p>
-         
-         <div class="ebnf">
-            
-            <pre><a href="#WithKeys" title="WithKeys" shape="rect">WithKeys</a> ::= 'WITH KEYS'</pre>
-            </div>
-         </p>
-      
-      <p>referenced by:
-         
-         <ul>
-            
-            <li><a href="#Describe" title="Describe">Describe</a></li>
-            
-            <li><a href="#Select" title="Select">Select</a></li>
-            </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="WithValues">WithValues:</a></p><img border="0" src="diagram/WithValues.png" height="37" width="175"><p>
-         
-         <div class="ebnf">
-            
-            <pre><a href="#WithValues" title="WithValues" shape="rect">WithValues</a>
-         ::= 'WITH VALUES'</pre>
-            </div>
-         </p>
-      
-      <p>referenced by:
-         
-         <ul>
-            
-            <li><a href="#Search" title="Search">Search</a></li>
-            </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Pretty">Pretty:</a></p><img border="0" src="diagram/Pretty.png" height="37" width="131"><p>
-         
-         <div class="ebnf">
-            
-            <pre><a href="#Pretty" title="Pretty" shape="rect">Pretty</a>   ::= 'PRETTY'</pre>
-            </div>
-         </p>
-      
-      <p>referenced by:
-         
-         <ul>
-            
-            <li><a href="#AsJson" title="AsJson">AsJson</a></li>
-            
-            <li><a href="#Describe" title="Describe">Describe</a></li>
             </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="Target">Target:</a></p><img border="0" src="diagram/Target.png" height="81" width="249" usemap="#Target.map"><map name="Target.map"><area shape="rect" coords="49,1,147,33" href="#FullJsonPath" title="FullJsonPath"><area shape="rect" coords="95,45,153,77" href="#Select" title="Select"></map><p>
          
@@ -375,7 +328,7 @@
             
             <li><a href="#Select" title="Select">Select</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Operator">Operator:</a></p><img border="0" src="diagram/Operator.png" height="257" width="139"><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Operator">Operator:</a></p><img border="0" src="diagram/Operator.png" height="345" width="139"><p>
          
          <div class="ebnf">
             
@@ -384,13 +337,17 @@
            | '#'
            | '!#'
            | '&lt;'
-           | '&gt;'</pre>
+           | '&gt;'
+           | '&lt;='
+           | '&gt;='</pre>
             </div>
          </p>
       
       <p>referenced by:
          
          <ul>
+            
+            <li><a href="#Search" title="Search">Search</a></li>
             
             <li><a href="#Where" title="Where">Where</a></li>
             </ul>
@@ -430,15 +387,15 @@
             
             <li><a href="#Describe" title="Describe">Describe</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="SelectProjection">SelectProjection:</a></p><img border="0" src="diagram/SelectProjection.png" height="213" width="303" usemap="#SelectProjection.map"><map name="SelectProjection.map"><area shape="rect" coords="49,1,121,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="115,89,187,121" href="#JsonKey" title="JsonKey"><area shape="rect" coords="49,177,127,209" href="#MathExpr" title="MathExpr"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="SelectProjection">SelectProjection:</a></p><img border="0" src="diagram/SelectProjection.png" height="213" width="403" usemap="#SelectProjection.map"><map name="SelectProjection.map"><area shape="rect" coords="49,1,121,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="115,89,187,121" href="#JsonKey" title="JsonKey"><area shape="rect" coords="49,177,127,209" href="#MathExpr" title="MathExpr"><area shape="rect" coords="193,177,307,209" href="#MathProjection" title="MathProjection"></map><p>
          
          <div class="ebnf">
             
             <pre><a href="#SelectProjection" title="SelectProjection" shape="rect">SelectProjection</a>
          ::= <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a>
-           | '(' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> ( ',' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> )* ')'
+           | '(' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> ( ',' <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> )* ') '
            | 'ELEMENT'
-           | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a></pre>
+           | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> '(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'</pre>
             </div>
          </p>
       
@@ -448,14 +405,14 @@
             
             <li><a href="#Select" title="Select">Select</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="MathExpr">MathExpr:</a></p><img border="0" src="diagram/MathExpr.png" height="169" width="353" usemap="#MathExpr.map"><map name="MathExpr.map"><area shape="rect" coords="125,1,239,33" href="#MathProjection" title="MathProjection"><area shape="rect" coords="123,45,237,77" href="#MathProjection" title="MathProjection"><area shape="rect" coords="125,89,239,121" href="#MathProjection" title="MathProjection"><area shape="rect" coords="143,133,257,165" href="#MathProjection" title="MathProjection"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="MathExpr">MathExpr:</a></p><img border="0" src="diagram/MathExpr.png" height="169" width="167"><p>
          
          <div class="ebnf">
             
-            <pre><a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> ::= 'SUM(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'
-           | 'MIN(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'
-           | 'MAX(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'
-           | 'COUNT(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')'</pre>
+            <pre><a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> ::= 'SUM'
+           | 'MIN'
+           | 'MAX'
+           | 'COUNT'</pre>
             </div>
          </p>
       
@@ -479,7 +436,7 @@
          
          <ul>
             
-            <li><a href="#MathExpr" title="MathExpr">MathExpr</a></li>
+            <li><a href="#SelectProjection" title="SelectProjection">SelectProjection</a></li>
             </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="FullJsonPath">FullJsonPath:</a></p><img border="0" src="diagram/FullJsonPath.png" height="81" width="311" usemap="#FullJsonPath.map"><map name="FullJsonPath.map"><area shape="rect" coords="139,1,215,33" href="#JsonPath" title="JsonPath"><area shape="rect" coords="137,45,213,77" href="#JsonPath" title="JsonPath"></map><p>
          
