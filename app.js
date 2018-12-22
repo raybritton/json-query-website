@@ -12,6 +12,8 @@ const syntaxDocPage = makeSyntaxDocPage();
 
 app.use(express.static('public'));
 
+app.get('/alive', (req, res) => res.sendStatus(200));
+
 app.get('/docs', (req, res) => {
 	res.send(syntaxDocPage);
 });
