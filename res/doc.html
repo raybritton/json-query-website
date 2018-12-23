@@ -3,6 +3,7 @@
 <html>
    <head>
       <base href="/docs/" />
+      <title>JQL Syntax Diagrams</title>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="generator" content="Railroad Diagram Generator 1.54.1745">
       <style type="text/css" xml:space="preserve">
@@ -185,11 +186,11 @@
             </div>
          </p>
       
-      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="Select">Select:</a></p><img border="0" src="diagram/Select.png" height="155" width="961" usemap="#Select.map"><map name="Select.map"><area shape="rect" coords="285,33,407,65" href="#SelectProjection" title="SelectProjection"><area shape="rect" coords="527,1,587,33" href="#Target" title="Target"><area shape="rect" coords="627,33,689,65" href="#Where" title="Where"><area shape="rect" coords="749,33,799,65" href="#Limit" title="Limit"><area shape="rect" coords="859,33,917,65" href="#Offset" title="Offset"><area shape="rect" coords="559,119,629,151" href="#OrderBy" title="OrderBy"><area shape="rect" coords="847,119,911,151" href="#AsJson" title="AsJson"></map><p>
+      <p>no references</p><br><p style="font-size: 14px; font-weight:bold"><a name="Select">Select:</a></p><img border="0" src="diagram/Select.png" height="155" width="897" usemap="#Select.map"><map name="Select.map"><area shape="rect" coords="285,33,407,65" href="#SelectProjection" title="SelectProjection"><area shape="rect" coords="527,1,587,33" href="#Target" title="Target"><area shape="rect" coords="791,33,853,65" href="#Where" title="Where"><area shape="rect" coords="267,119,317,151" href="#Limit" title="Limit"><area shape="rect" coords="377,119,435,151" href="#Offset" title="Offset"><area shape="rect" coords="495,119,565,151" href="#OrderBy" title="OrderBy"><area shape="rect" coords="783,119,847,151" href="#AsJson" title="AsJson"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Select" title="Select" shape="rect">Select</a>   ::= 'SELECT' 'DISTINCT'? ( <a href="#SelectProjection" title="SelectProjection" shape="rect">SelectProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? <a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>? 'WITH KEYS'? <a href="#AsJson" title="AsJson" shape="rect">AsJson</a>?</pre>
+            <pre><a href="#Select" title="Select" shape="rect">Select</a>   ::= 'SELECT' 'DISTINCT'? ( <a href="#SelectProjection" title="SelectProjection" shape="rect">SelectProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> 'BY ELEMENT'? <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? <a href="#OrderBy" title="OrderBy" shape="rect">OrderBy</a>? 'WITH KEYS'? <a href="#AsJson" title="AsJson" shape="rect">AsJson</a>?</pre>
             </div>
          </p>
       
@@ -231,11 +232,11 @@
             
             <li><a href="#Statement" title="Statement">Statement</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Where">Where:</a></p><img border="0" src="diagram/Where.png" height="81" width="637" usemap="#Where.map"><map name="Where.map"><area shape="rect" coords="139,1,211,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="261,1,337,33" href="#Operator" title="Operator"><area shape="rect" coords="357,1,413,33" href="#Value" title="Value"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Where">Where:</a></p><img border="0" src="diagram/Where.png" height="125" width="859" usemap="#Where.map"><map name="Where.map"><area shape="rect" coords="139,1,211,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="139,89,217,121" href="#MathExpr" title="MathExpr"><area shape="rect" coords="283,89,397,121" href="#MathProjection" title="MathProjection"><area shape="rect" coords="483,1,559,33" href="#Operator" title="Operator"><area shape="rect" coords="579,1,635,33" href="#Value" title="Value"></map><p>
          
          <div class="ebnf">
             
-            <pre><a href="#Where" title="Where" shape="rect">Where</a>    ::= 'WHERE' ( <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> | 'ELEMENT' ) <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'?</pre>
+            <pre><a href="#Where" title="Where" shape="rect">Where</a>    ::= 'WHERE' ( <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> | 'ELEMENT' | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> '(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')' ) <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'?</pre>
             </div>
          </p>
       
@@ -422,6 +423,8 @@
          <ul>
             
             <li><a href="#SelectProjection" title="SelectProjection">SelectProjection</a></li>
+            
+            <li><a href="#Where" title="Where">Where</a></li>
             </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="MathProjection">MathProjection:</a></p><img border="0" src="diagram/MathProjection.png" height="81" width="181" usemap="#MathProjection.map"><map name="MathProjection.map"><area shape="rect" coords="49,45,121,77" href="#JsonKey" title="JsonKey"></map><p>
          
@@ -438,6 +441,8 @@
          <ul>
             
             <li><a href="#SelectProjection" title="SelectProjection">SelectProjection</a></li>
+            
+            <li><a href="#Where" title="Where">Where</a></li>
             </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="FullJsonPath">FullJsonPath:</a></p><img border="0" src="diagram/FullJsonPath.png" height="81" width="311" usemap="#FullJsonPath.map"><map name="FullJsonPath.map"><area shape="rect" coords="139,1,215,33" href="#JsonPath" title="JsonPath"><area shape="rect" coords="137,45,213,77" href="#JsonPath" title="JsonPath"></map><p>
          
