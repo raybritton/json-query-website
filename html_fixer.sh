@@ -6,11 +6,11 @@ fi
 
 unzip diagram.zip
 
-rm /public/docs/diagram/*
+rm public/docs/diagram/*
 
-mv /diagram/* /public/docs/diagram/
+mv diagram/* public/docs/diagram/
 
-rm -r /diagram
+rm -r diagram
 
 mv index.html doc.html
 
@@ -22,3 +22,5 @@ sed -i'.bak' -e 's@</style>@.ebnf {display: none; } </style>@g' doc.html
 rm doc.html.bak
 
 mv doc.html res/
+
+rm diagram.zip
