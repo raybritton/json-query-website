@@ -1,8 +1,16 @@
 #!/bin/bash
 
-if [ ! -f index.html ]; then
-    echo "Run in same directory as index.html"
+if [ ! -f diagram.zip ]; then
+    echo "Run in same directory as diagram.zip"
 fi
+
+unzip diagram.zip
+
+rm /public/docs/diagram/*
+
+mv /diagram/* /public/docs/diagram/
+
+rm -r /diagram
 
 mv index.html doc.html
 
