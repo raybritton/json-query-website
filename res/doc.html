@@ -223,11 +223,11 @@
             
             <li><a href="#Value" title="Value">Value</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Describe">Describe:</a></p><img border="0" src="diagram/Describe.png" height="155" width="995" usemap="#Describe.map"><map name="Describe.map"><area shape="rect" coords="303,33,441,65" href="#DescribeProjection" title="DescribeProjection"><area shape="rect" coords="561,1,621,33" href="#Target" title="Target"><area shape="rect" coords="661,33,723,65" href="#Where" title="Where"><area shape="rect" coords="783,33,833,65" href="#Limit" title="Limit"><area shape="rect" coords="893,33,951,65" href="#Offset" title="Offset"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Describe">Describe:</a></p><img border="0" src="diagram/Describe.png" height="167" width="995" usemap="#Describe.map"><map name="Describe.map"><area shape="rect" coords="303,33,441,65" href="#DescribeProjection" title="DescribeProjection"><area shape="rect" coords="561,1,621,33" href="#Target" title="Target"><area shape="rect" coords="661,33,723,65" href="#Where" title="Where"><area shape="rect" coords="783,33,833,65" href="#Limit" title="Limit"><area shape="rect" coords="893,33,951,65" href="#Offset" title="Offset"></map><p>
          
          <div class="ebnf"><code>
                
-               <div><a href="#Describe" title="Describe" shape="rect">Describe</a>&nbsp;::= 'DESCRIBE' 'DISTINCT'? ( <a href="#DescribeProjection" title="DescribeProjection" shape="rect">DescribeProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? 'PRETTY'?</div></code></div>
+               <div><a href="#Describe" title="Describe" shape="rect">Describe</a>&nbsp;::= 'DESCRIBE' 'DISTINCT'? ( <a href="#DescribeProjection" title="DescribeProjection" shape="rect">DescribeProjection</a> 'FROM' )? <a href="#Target" title="Target" shape="rect">Target</a> <a href="#Where" title="Where" shape="rect">Where</a>? <a href="#Limit" title="Limit" shape="rect">Limit</a>? <a href="#Offset" title="Offset" shape="rect">Offset</a>? 'PRETTY' 'WITH KEYS'?</div></code></div>
          </p>
       
       <p>referenced by:
@@ -236,11 +236,11 @@
             
             <li><a href="#Statement" title="Statement">Statement</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Search">Search:</a></p><img border="0" src="diagram/Search.png" height="211" width="911" usemap="#Search.map"><map name="Search.map"><area shape="rect" coords="269,1,329,33" href="#Target" title="Target"><area shape="rect" coords="541,1,617,33" href="#Operator" title="Operator"><area shape="rect" coords="637,1,693,33" href="#Value" title="Value"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Search">Search:</a></p><img border="0" src="diagram/Search.png" height="125" width="847" usemap="#Search.map"><map name="Search.map"><area shape="rect" coords="269,1,329,33" href="#Target" title="Target"><area shape="rect" coords="541,1,641,33" href="#SearchFields" title="SearchFields"></map><p>
          
          <div class="ebnf"><code>
                
-               <div><a href="#Search" title="Search" shape="rect">Search</a>&nbsp;&nbsp;&nbsp;::= 'SEARCH' 'DISTINCT'? <a href="#Target" title="Target" shape="rect">Target</a> 'FOR' ( 'ANY' | 'KEY' | 'VALUE' ) <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'? 'WITH VALUES'?</div></code></div>
+               <div><a href="#Search" title="Search" shape="rect">Search</a>&nbsp;&nbsp;&nbsp;::= 'SEARCH' 'DISTINCT'? <a href="#Target" title="Target" shape="rect">Target</a> 'FOR' ( 'ANY' | 'KEY' | 'VALUE' ) <a href="#SearchFields" title="SearchFields" shape="rect">SearchFields</a> 'WITH VALUES'?</div></code></div>
          </p>
       
       <p>referenced by:
@@ -249,11 +249,31 @@
             
             <li><a href="#Statement" title="Statement">Statement</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Where">Where:</a></p><img border="0" src="diagram/Where.png" height="125" width="859" usemap="#Where.map"><map name="Where.map"><area shape="rect" coords="139,1,211,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="139,89,217,121" href="#MathExpr" title="MathExpr"><area shape="rect" coords="283,89,397,121" href="#MathProjection" title="MathProjection"><area shape="rect" coords="483,1,559,33" href="#Operator" title="Operator"><area shape="rect" coords="579,1,635,33" href="#Value" title="Value"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="SearchFields">SearchFields:</a></p><img border="0" src="diagram/SearchFields.png" height="333" width="445" usemap="#SearchFields.map"><map name="SearchFields.map"><area shape="rect" coords="49,1,125,33" href="#Operator" title="Operator"><area shape="rect" coords="145,1,201,33" href="#Value" title="Value"></map><p>
          
          <div class="ebnf"><code>
                
-               <div><a href="#Where" title="Where" shape="rect">Where</a>&nbsp;&nbsp;&nbsp;&nbsp;::= 'WHERE' ( <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> | 'ELEMENT' | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> '(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')' ) <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'?</div></code></div>
+               <div><a href="#SearchFields" title="SearchFields" shape="rect">SearchFields</a></div>
+               
+               <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::= <a href="#Operator" title="Operator" shape="rect">Operator</a> <a href="#Value" title="Value" shape="rect">Value</a> 'CASE SENSITIVE'?</div>
+               
+               <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 'IS' 'NOT'? ( 'OBJECT' | 'ARRAY' | 'NUMBER' | 'STRING' | 'BOOLEAN' |
+                  'NULL' )</div></code></div>
+         </p>
+      
+      <p>referenced by:
+         
+         <ul>
+            
+            <li><a href="#Search" title="Search">Search</a></li>
+            
+            <li><a href="#Where" title="Where">Where</a></li>
+            </ul>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Where">Where:</a></p><img border="0" src="diagram/Where.png" height="125" width="613" usemap="#Where.map"><map name="Where.map"><area shape="rect" coords="139,1,211,33" href="#JsonKey" title="JsonKey"><area shape="rect" coords="139,89,217,121" href="#MathExpr" title="MathExpr"><area shape="rect" coords="283,89,397,121" href="#MathProjection" title="MathProjection"><area shape="rect" coords="483,1,583,33" href="#SearchFields" title="SearchFields"></map><p>
+         
+         <div class="ebnf"><code>
+               
+               <div><a href="#Where" title="Where" shape="rect">Where</a>&nbsp;&nbsp;&nbsp;&nbsp;::= 'WHERE' ( <a href="#JsonKey" title="JsonKey" shape="rect">JsonKey</a> | 'ELEMENT' | <a href="#MathExpr" title="MathExpr" shape="rect">MathExpr</a> '(' <a href="#MathProjection" title="MathProjection" shape="rect">MathProjection</a> ')' ) <a href="#SearchFields" title="SearchFields" shape="rect">SearchFields</a></div></code></div>
          </p>
       
       <p>referenced by:
@@ -351,11 +371,9 @@
          
          <ul>
             
-            <li><a href="#Search" title="Search">Search</a></li>
-            
-            <li><a href="#Where" title="Where">Where</a></li>
+            <li><a href="#SearchFields" title="SearchFields">SearchFields</a></li>
             </ul>
-         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Value">Value:</a></p><img border="0" src="diagram/Value.png" height="257" width="249" usemap="#Value.map"><map name="Value.map"><area shape="rect" coords="49,1,119,33" href="#Number" title="Number"><area shape="rect" coords="49,45,107,77" href="#String" title="String"><area shape="rect" coords="95,221,153,253" href="#Select" title="Select"></map><p>
+         </p><br><p style="font-size: 14px; font-weight:bold"><a name="Value">Value:</a></p><img border="0" src="diagram/Value.png" height="213" width="249" usemap="#Value.map"><map name="Value.map"><area shape="rect" coords="49,1,119,33" href="#Number" title="Number"><area shape="rect" coords="49,45,107,77" href="#String" title="String"><area shape="rect" coords="95,177,153,209" href="#Select" title="Select"></map><p>
          
          <div class="ebnf"><code>
                
@@ -367,8 +385,6 @@
                
                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 'FALSE'</div>
                
-               <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 'NULL'</div>
-               
                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| '(' <a href="#Select" title="Select" shape="rect">Select</a> ')'</div></code></div>
          </p>
       
@@ -376,9 +392,7 @@
          
          <ul>
             
-            <li><a href="#Search" title="Search">Search</a></li>
-            
-            <li><a href="#Where" title="Where">Where</a></li>
+            <li><a href="#SearchFields" title="SearchFields">SearchFields</a></li>
             </ul>
          </p><br><p style="font-size: 14px; font-weight:bold"><a name="DescribeProjection">DescribeProjection:</a></p><img border="0" src="diagram/DescribeProjection.png" height="37" width="131" usemap="#DescribeProjection.map"><map name="DescribeProjection.map"><area shape="rect" coords="29,1,101,33" href="#JsonKey" title="JsonKey"></map><p>
          
