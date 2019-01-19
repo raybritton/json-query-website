@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="fill">
+  <head>
+      <meta charset="utf-8">
+      <title>Json Query Language</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+      <link rel="stylesheet" type="text/css" href="css/reset.css" />
+      <link rel="stylesheet" type="text/css" href="css/layout.css" />
+      <link rel="stylesheet" type="text/css" href="css/theme.css" />
+  </head>
+  <body class="fill">
+    <div class="fill">
+      <div id="content" class="fill">
+        <ul id="toolbar">
+            <li><h3 id="title">Json Query Language</h3></li>
+            <li class="docs_link"><a target="_blank" href="https://github.com/raybritton/json-query/blob/master/JQL.md">Docs</a></li>
+            <li class="docs_link"><a target="_blank" href="https://jql.dokku-ray.app/docs/">Syntax Diagrams</a></li>
+            <li class="img_link"><a target="_blank" href="https://github.com/raybritton/json-query"><img src="images/github.png"></a></li>
+        </ul>
+        <div id="query_container">
+          <div id="query" type="text" contenteditable="true">SELECT "developer" FROM "."</div>
+          <button id="run_query">Query</button>
+        </div>
+        <div id="json_containers" class="row">
+            <div id="input_container" class="column">
+              <textarea id="input" class="fill" >
+{
+  "developer": "Ray Britton",
+  "github": "https://www.github.com/raybritton",
+  "example_data": {
+    "numbers": [1,2,3,4],
+    "things": [
+      {
+        "foo": "Word1",
+        "bar": 32
+      },
+      {
+        "foo": "Word2",
+        "bar": 16
+      }
+    ]
+  },
+  "example_queries": [
+    " SELECT SUM('example_data.numbers') FROM '.' ",
+    " SELECT 'foo' FROM '.example_data.things' WHERE 'bar' == 32 ",
+    " DESCRIBE '.' ",
+    " SEARCH '.' FOR ANY # 'Word' WITH VALUES"
+  ]
+}
+              </textarea>
+            </div>
+            <div id="output_container" class="column">
+              <textarea id="output" class="fill"></textarea>
+            </div>
+        </div>
+      </div>
+      <div id="dialog">
+        <h3 id="dialogMessage"></h3>
+        <p id="dialogInfo"></p>
+        <p id="dialogClose">X</p>
+      </div>
+    </div>
+    <script src="js/syntax.js"></script>
+    <script>
+      function runQuery(input, query) {
+        document.getElementById('dialogMessage').style.textAlign = 'center';
+        document.getElementById('dialogMessage').innerText = "Loading";
+        document.getElementById('dialogInfo').innerText = "";
+        document.getElementById('dialog').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('dialogClose').style.display = 'none';
+
+        fetch('/', {
+          method: 'post',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            input: input,
+            query: query
+          })
+        })
+        .then(function (data) {
+          return Promise.resolve(data)
+        })
+        .then(function (data) {
+          return data.json()
+        })
+        .then(function (json) {
+          if ((json.result || "").length > 0) {
+            document.getElementById('dialog').style.display = 'none';
+            document.getElementById('content').style.display = 'flex';
+            document.getElementById('output').value = json.result;
+          } else {
+            showError(json.error.message, json.error.extra);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          showError("Unknown error")
+        });
+      }
+
+      function showError(message, extra) {
+        document.getElementById('dialogMessage').style.textAlign = 'left';
+        document.getElementById('dialogMessage').innerText = message;
+        document.getElementById('dialogInfo').innerHTML = extra || "";
+        document.getElementById('dialog').style.display = 'block';
+        document.getElementById('content').style.display = 'none';
+        document.getElementById('dialogClose').style.display = 'block';
+      }
+
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        if(url.searchParams.has("new")) {
+          document.getElementById('input').value = "";
+          document.getElementById('query').value = "";
+        }
+
+        document.getElementById('dialogClose').onclick = function() {
+          document.getElementById('dialog').style.display = 'none';
+          document.getElementById('content').style.display = 'flex';
+        }
+
+        document.getElementById('run_query').onclick = function() {
+          var input = document.getElementById('input').value.trim();
+          var query = queryText.trim();
+          if (input.length == 0) {
+            alert('No input');
+            return;
+          }
+          if (query.length == 0) {
+            alert('No query');
+            return;
+          }
+          try {
+            var parsed = JSON.parse(input);
+          } catch (err) {
+            alert('Invalid json: ' + err.message);
+            return;
+          }
+
+          runQuery(input, query);
+        }
+      });
+    </script>
+  </body>
+</html>

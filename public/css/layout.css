@@ -1,0 +1,102 @@
+.column {
+  float: left;
+  width: 49%;
+  height: 100%;
+  padding: 4px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+#content {
+  display: flex;
+  flex-flow: column;
+}
+
+.docs_link {
+  float: right;
+}
+
+.img_link {
+  float: right;
+}
+
+.img_link > a > img {
+  margin: 8px;
+  height: 32px;
+}
+
+#toolbar {
+  height: 40px;
+}
+
+#query_container {
+  height: 30px;
+  width: 100%;
+  display: grid;
+  z-index: 50;
+  grid-template-columns: auto 70px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#query_container > input {
+  grid-column: 1;
+  margin-left: 8px;
+}
+
+#query_container > button {
+  grid-column: 2;
+  margin-left: 8px;
+  margin-right: 12px;
+}
+
+#json_containers {
+  margin: -88px 0 0 0;
+  padding: 88px 0 0 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#query {
+  margin-left: 4px;
+}
+
+#dialog {
+  margin-top: 6%;
+  width: 70%;
+  height: 60%;
+  padding: 32px;
+  margin-right: auto;
+  margin-left: auto;
+  background: white;
+  border: 1px solid black;
+  display: none;
+  overflow: scroll;
+  position: relative;
+}
+
+#dialogInfo {
+  margin-top: 16px;
+}
+
+#dialogClose {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 16px;
+  font-size: 2em;
+  font-family: sans-serif;
+  display: none;
+}

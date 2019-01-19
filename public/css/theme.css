@@ -1,0 +1,35 @@
+button {
+  cursor: pointer;
+}
+
+#title {
+  padding: 8px;
+  font-size: 1.5em;
+  font-family: monospace;
+}
+
+.docs_link {
+  padding: 16px;
+}
+
+textarea {
+  resize: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  float: left;
+  box-sizing: inherit;
+}
+
+li a {
+  display: block;
+}
+
+#query {
+  border: 1px solid darkgray;
+  padding: 4px;
+}

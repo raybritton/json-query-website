@@ -1,0 +1,32 @@
+{
+  "extends": "airbnb",
+
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": { 
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+
+  "env": {
+    "es6": true,
+    "node": true
+  },
+
+  "plugins": [
+    "import",
+    "node",
+    "promise",
+    "standard"
+  ],
+
+  "globals": {
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+
+  "rules": {
+  }
+}
