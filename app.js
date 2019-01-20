@@ -6,10 +6,13 @@ const sprintf = require('sprintf-js').sprintf;
 const bodyParser = require('body-parser');
 const app = express();
 const util = require('util');
+const request = require('request');
 var spawn = require('child-process-promise').spawn;
 
 global.SERVER_HOST = process.env.HOSTNAME || 'localhost';
 global.SERVER_PORT = process.env.PORT || '3001';
+global.API_KEY = process.env.API_KEY;
+global.HISTORY_URL = process.env.HISTORY_URL;
 
 const JQL_LIB = process.env.LIB_PATH || 'res/jq-0.13.2.jar'
 
@@ -62,6 +65,23 @@ app.post('/', (req, res) => {
 				
 				json.error.extra = (json.error.extra || "").replace(/\n/g, "<br>");
 				res.contentType("application/json").send(JSON.stringify(json));
+
+				request.post({
+					json: true,
+					url: HISTORY_URL,
+					headers: {
+						'x-api-key': API_KEY
+					},
+					body: {
+						input: input,
+						query: query,
+						output: json
+					}
+			}, function(error, response, body){
+				if (error) {
+					console.log(error)
+				}
+			});
     })
     .catch(function (err) {
 			console.log(err);
