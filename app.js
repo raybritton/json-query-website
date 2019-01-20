@@ -14,7 +14,7 @@ global.SERVER_PORT = process.env.PORT || '3001';
 global.API_KEY = process.env.API_KEY;
 global.HISTORY_URL = process.env.HISTORY_URL;
 
-const JQL_LIB = process.env.LIB_PATH || 'res/jq-0.13.2.jar'
+const JQL_LIB = process.env.LIB_PATH || 'res/jq-0.13.3.jar'
 
 const syntaxDocPage = makeSyntaxDocPage();
 const jqlPage = fs.readFileSync('res/jql.html').toString();
