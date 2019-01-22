@@ -1,7 +1,6 @@
 .column {
   float: left;
   width: 49%;
-  height: 100%;
   padding: 4px;
 }
 
@@ -35,11 +34,11 @@
 }
 
 #toolbar {
-  height: 40px;
+  flex: 0 1 40px;
 }
 
 #query_container {
-  height: 30px;
+  flex: 0 1 auto;
   width: 100%;
   display: grid;
   z-index: 50;
@@ -60,9 +59,7 @@
 }
 
 #json_containers {
-  margin: -88px 0 0 0;
-  padding: 88px 0 0 0;
-  height: 100%;
+  flex: 1 1 auto;
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
