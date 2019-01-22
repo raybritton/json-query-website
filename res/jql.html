@@ -18,12 +18,12 @@
             <li class="img_link"><a target="_blank" href="https://github.com/raybritton/json-query"><img src="images/github.png"></a></li>
         </ul>
         <div id="query_container">
-          <div id="query" type="text" contenteditable="true">SELECT "developer" FROM "."</div>
+          <div id="query" >SELECT "developer" FROM "."</div>
           <button id="run_query">Query</button>
         </div>
         <div id="json_containers" class="row">
             <div id="input_container" class="column">
-              <textarea id="input" class="fill" >
+              <div id="input" class="fill">
 {
   "developer": "Ray Britton",
   "github": "https://www.github.com/raybritton",
@@ -45,10 +45,11 @@
     " SELECT 'foo' FROM '.example_data.things' WHERE 'bar' == 32 ",
     " DESCRIBE '.' ",
     " SEARCH '.' FOR ANY # 'Word' WITH VALUES ",
-    " SELECT 'example_queries.[0]' FROM '.' "
+    " SELECT 'example_queries.[0]' FROM '.' ",
+    " SELECT VALUES FROM (SELECT 'bar' FROM '.example_data.things' AS JSON) "
   ]
 }
-              </textarea>
+</div>
             </div>
             <div id="output_container" class="column">
               <textarea id="output" class="fill"></textarea>
@@ -62,8 +63,22 @@
       </div>
     </div>
     <p>JSON and queries are recorded for analytics and help improve the service.</p>
-    <script src="js/syntax.js"></script>
+    <script src="/ace/ace.js"></script>
+    <script src="/ace/ext-language_tools.js"></script>
     <script>
+      var inputEditor = ace.edit("input", {
+        theme: "ace/theme/chrome",
+        mode: "ace/mode/json"
+      });
+
+      var queryEditor = ace.edit("query", {
+        theme: "ace/theme/chrome",
+        mode: "ace/mode/jql",
+        maxLines: 5,
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true
+      });
+
       function runQuery(input, query) {
         document.getElementById('dialogMessage').style.textAlign = 'center';
         document.getElementById('dialogMessage').innerText = "Loading";
@@ -111,11 +126,16 @@
       }
 
       document.addEventListener("DOMContentLoaded", function(event) { 
+        var container = document.getElementById("json_containers");
+        var height = container.clientHeight;
+        document.getElementById("input_container").style.height = `${height}px`;
+        document.getElementById("output_container").style.height = `${height}px`;
+
         var url_string = window.location.href
         var url = new URL(url_string);
         if(url.searchParams.has("new")) {
-          document.getElementById('input').value = "";
-          document.getElementById('query').value = "";
+          inputEditor.setValue("");
+          queryEditor.setValue("");
         }
 
         document.getElementById('dialogClose').onclick = function() {
@@ -124,8 +144,8 @@
         }
 
         document.getElementById('run_query').onclick = function() {
-          var input = document.getElementById('input').value.trim();
-          var query = queryText.trim();
+          var input = inputEditor.getValue().trim();
+          var query = queryEditor.getValue().trim();
           if (input.length == 0) {
             alert('No input');
             return;
