@@ -20,7 +20,7 @@ const syntaxDocPage = makeSyntaxDocPage();
 const jqlPage = fs.readFileSync('res/jql.html').toString();
 
 app.use(express.static('public'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '5mb'}));
 
 app.get('/alive', (req, res) => res.sendStatus(200));
 
